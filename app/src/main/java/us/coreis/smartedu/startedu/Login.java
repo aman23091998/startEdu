@@ -80,6 +80,7 @@ public class Login extends AppCompatActivity {
 
     public void gotoMain() {
         Toast.makeText(getApplicationContext(), "Logging In . ", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this , MainActivity.class));
     }
 
     public boolean validatePassword(String password) {

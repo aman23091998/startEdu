@@ -1,6 +1,5 @@
 package us.coreis.smartedu.startedu;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -19,8 +18,7 @@ import java.util.regex.Pattern;
 public class RegisterHere extends AppCompatActivity {
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-    private Matcher matcher;
-    public String name ;
+    public String name;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,39 +33,40 @@ public class RegisterHere extends AppCompatActivity {
         final TextInputLayout nameWrapper = (TextInputLayout) findViewById(R.id.wrapper_name_register);
         Button registerButton = (Button) findViewById(R.id.registerButton);
         registerButton.setOnClickListener(new View.OnClickListener() {
-                                           @Override
-                                           public void onClick(View v) {
-                                               hideKeyboard();
-                                               name = nameWrapper.getEditText().getText().toString();
-                                               String email = emailWrapper.getEditText().getText().toString();
-                                               String password = passwordWrapper.getEditText().getText().toString();
-                                               String confirmPassword = passwordConfirmWrapper.getEditText().getText().toString();
-                                               if (!validateEmail(email))
-                                                   emailWrapper.setError("Not a valid email address!");
-                                               else emailWrapper.setErrorEnabled(false);
-                                               if (!validatePassword(password))
-                                                   passwordWrapper.setError("Password should have at-least 8 characters ");
-                                               else if (!confirmPasswords(password, confirmPassword)) {
-                                                   passwordWrapper.setError("Passwords don't match");
-                                                   passwordConfirmWrapper.setError("Password don't match ");
-                                               } else {
-                                                   passwordWrapper.setErrorEnabled(false);
-                                                   passwordConfirmWrapper.setErrorEnabled(false);
-                                               }
-                                               if(name.length() == 0 ) nameWrapper.setError("Field can't be left Empty ");
-                                               if (validateEmail(email) && validatePassword(password) && confirmPasswords(password, confirmPassword)) {
-                                                   emailWrapper.setErrorEnabled(false);
-                                                   passwordWrapper.setErrorEnabled(false);
-                                                   passwordConfirmWrapper.setErrorEnabled(false);
-                                                   gotoMain();
-                                               }
-                                           }
-                                       }
+                                              @Override
+                                              public void onClick(View v) {
+                                                  hideKeyboard();
+                                                  name = nameWrapper.getEditText().getText().toString();
+                                                  String email = emailWrapper.getEditText().getText().toString();
+                                                  String password = passwordWrapper.getEditText().getText().toString();
+                                                  String confirmPassword = passwordConfirmWrapper.getEditText().getText().toString();
+                                                  if (!validateEmail(email))
+                                                      emailWrapper.setError("Not a valid email address!");
+                                                  else emailWrapper.setErrorEnabled(false);
+                                                  if (!validatePassword(password))
+                                                      passwordWrapper.setError("Password should have at-least 8 characters ");
+                                                  else if (!confirmPasswords(password, confirmPassword)) {
+                                                      passwordWrapper.setError("Passwords don't match");
+                                                      passwordConfirmWrapper.setError("Password don't match ");
+                                                  } else {
+                                                      passwordWrapper.setErrorEnabled(false);
+                                                      passwordConfirmWrapper.setErrorEnabled(false);
+                                                  }
+                                                  if (name.length() == 0)
+                                                      nameWrapper.setError("Field can't be left Empty ");
+                                                  if (validateEmail(email) && validatePassword(password) && confirmPasswords(password, confirmPassword)) {
+                                                      emailWrapper.setErrorEnabled(false);
+                                                      passwordWrapper.setErrorEnabled(false);
+                                                      passwordConfirmWrapper.setErrorEnabled(false);
+                                                      gotoMain();
+                                                  }
+                                              }
+                                          }
         );
     }
 
     public boolean validateEmail(String email) {
-        matcher = pattern.matcher(email);
+        Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
 
@@ -81,6 +80,7 @@ public class RegisterHere extends AppCompatActivity {
 
     public void gotoMain() {
         Toast.makeText(getApplicationContext(), "Finalising your registration . ", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     public boolean validatePassword(String password) {
@@ -88,8 +88,6 @@ public class RegisterHere extends AppCompatActivity {
     }
 
     public boolean confirmPasswords(String password, String confirmPassword) {
-        if (password.equals(confirmPassword)) return true;
-        else return false;
+        return password.equals(confirmPassword);
     }
 }
-
