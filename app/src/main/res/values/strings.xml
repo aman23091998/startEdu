@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">startEdu</string>
+    <string name="login_header">Login</string>
+    <string name="input_password">Password</string>
+    <string name="input_email">Email</string>
+    <string name="register_now">Click to Register</string>
+    <string name="login_button">LOGIN</string>
+    <string name="register_here_header">Register</string>
+    <string name="input_confirm_password">Confirm Password</string>
+    <string name="input_name">Name</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
