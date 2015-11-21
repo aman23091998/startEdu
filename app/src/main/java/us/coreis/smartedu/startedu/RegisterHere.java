@@ -18,7 +18,9 @@ import java.util.regex.Pattern;
 public class RegisterHere extends AppCompatActivity {
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-    public String name;
+    public static String name = null;
+    public static String email = null;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class RegisterHere extends AppCompatActivity {
                                               public void onClick(View v) {
                                                   hideKeyboard();
                                                   name = nameWrapper.getEditText().getText().toString();
-                                                  String email = emailWrapper.getEditText().getText().toString();
+                                                  email = emailWrapper.getEditText().getText().toString();
                                                   String password = passwordWrapper.getEditText().getText().toString();
                                                   String confirmPassword = passwordConfirmWrapper.getEditText().getText().toString();
                                                   if (!validateEmail(email))
@@ -54,6 +56,7 @@ public class RegisterHere extends AppCompatActivity {
                                                   }
                                                   if (name.length() == 0)
                                                       nameWrapper.setError("Field can't be left Empty ");
+                                                  else nameWrapper.setErrorEnabled(false);
                                                   if (validateEmail(email) && validatePassword(password) && confirmPasswords(password, confirmPassword)) {
                                                       emailWrapper.setErrorEnabled(false);
                                                       passwordWrapper.setErrorEnabled(false);
@@ -81,6 +84,14 @@ public class RegisterHere extends AppCompatActivity {
     public void gotoMain() {
         Toast.makeText(getApplicationContext(), "Finalising your registration . ", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, MainActivity.class));
+    }
+
+    public static String getEmail() {
+        return email;
+    }
+
+    public static String getName() {
+        return name;
     }
 
     public boolean validatePassword(String password) {

@@ -14,4 +14,21 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string-array name="who2whom_desc">
+        <item>Jason  invited <![CDATA[<font color="#02BAA7">startEdu</font>]]> to  </item>
+        <item>Williams and 3 others registered</item>
+        <item>Ram,Shyam and 3 others subscribed to <![CDATA[<font color="#02BAA7">startEdu</font> \'s ]]>  session at SCHOOL</item>
+        <item><![CDATA[<font color="#02BAA7">startEdu</font>]]> started to work with Microsoft for empowering entrepreneurs in India</item>
+        <item>Sudhanshu collaborated with  Shantanu for a project</item>
+        <item> <![CDATA[<font color="#02BAA7">startEdu</font>]]> recruited Aman</item>
+    </string-array>
+    <string-array name="fromWhom">
+        <item> - Delhi Public School , Dwarka  </item>
+        <item> - <![CDATA[<font color="#02BAA7">startEdu</font>]]></item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> - App Designer </item>
+    </string-array>
 </resources>

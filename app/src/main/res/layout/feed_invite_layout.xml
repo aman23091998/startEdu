@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/invite_feed_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="sans-serif"
+        android:text="Please fill in the details of the person to be invited:" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/wrapper_name_invite_feed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="10dp">
+
+        <EditText
+            android:id="@+id/name_invite_feed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="helvetica"
+            android:hint="Name"
+            android:imeOptions="actionNext"
+            android:singleLine="true" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/wrapper_email_invite_feed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="10dp">
+
+        <EditText
+            android:id="@+id/email_invite_feed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="helvetica"
+            android:hint="Email"
+            android:singleLine="true" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/invite_feed_button"
+        style="@android:style/Widget.Material.Button"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:enabled="true"
+        android:text="INVITE"
+        android:textColor="#FFFFFF" />
+</LinearLayout>

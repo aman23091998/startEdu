@@ -22,6 +22,7 @@ public class Login extends AppCompatActivity {
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     private Matcher matcher;
+    static String email = null ;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,14 +37,14 @@ public class Login extends AppCompatActivity {
                                            @Override
                                            public void onClick(View v) {
                                                hideKeyboard();
-                                               String email = emailWrapper.getEditText().getText().toString();
+                                               email = emailWrapper.getEditText().getText().toString();
                                                String password = passwordWrapper.getEditText().getText().toString();
                                                if (!validateEmail(email))
                                                    emailWrapper.setError("Not a valid email address!");
                                                else emailWrapper.setErrorEnabled(false);
                                                if (!validatePassword(password))
-                                                    passwordWrapper.setError("Password should have at-least 8 characters ");
-                                               else  passwordWrapper.setErrorEnabled(false);
+                                                   passwordWrapper.setError("Password should have at-least 8 characters ");
+                                               else passwordWrapper.setErrorEnabled(false);
                                                if (validateEmail(email) && validatePassword(password)) {
                                                    emailWrapper.setErrorEnabled(false);
                                                    passwordWrapper.setErrorEnabled(false);
@@ -58,7 +59,7 @@ public class Login extends AppCompatActivity {
         registerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent register = new Intent(Login.this ,RegisterHere.class ) ;
+                Intent register = new Intent(Login.this, RegisterHere.class);
                 Login.this.startActivity(register);
             }
         });
@@ -80,7 +81,11 @@ public class Login extends AppCompatActivity {
 
     public void gotoMain() {
         Toast.makeText(getApplicationContext(), "Logging In . ", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this , MainActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
+    public static String getEmail(){
+        return email;
     }
 
     public boolean validatePassword(String password) {
