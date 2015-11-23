@@ -95,7 +95,7 @@
         <Button
             android:id="@+id/registerButton"
             style="@android:style/Widget.Material.Button"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:enabled="true"
