@@ -89,11 +89,11 @@ public class MainActivity extends AppCompatActivity
                 fragmentTransaction.replace(R.id.containerView, feed);
                 fragmentTransaction.commit();
                 break;
-            case R.id.nav_invite:
-
-                break;
             case R.id.nav_inspire:
-
+                Fragment Inspire = new InspireFragment ();
+                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.containerView , Inspire);
+                fragmentTransaction.commit();
                 break;
             case R.id.nav_profile:
 

@@ -6,9 +6,6 @@
             android:id="@+id/nav_feed"
             android:title="startFeed" />
         <item
-            android:id="@+id/nav_invite"
-            android:title="Invite" />
-        <item
             android:id="@+id/nav_inspire"
             android:title="Inspire" />
         <item

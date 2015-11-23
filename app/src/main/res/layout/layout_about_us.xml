@@ -43,7 +43,7 @@
             android:text="startEdu is a launchpad that equips and empowers students to found their own companies. We are a tech entrepreneurship school that educates young leaders and incubates innovative startups. Our mission is to inspire and foster a culture of innovation and to create an ecosystem of entrepreneurship in India. "
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/md_black_1000"
-            android:textSize="15sp" />
+            android:textSize="22sp" />
 
     </LinearLayout>
 </ScrollView>

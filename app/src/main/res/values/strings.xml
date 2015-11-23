@@ -32,4 +32,27 @@
         <item> - App Designer </item>
     </string-array>
 
+    <string-array name="inspire_names">
+        <item>Verghese Kurien</item>
+        <item>Sachin Bansal</item>
+        <item><![CDATA[
+        N.R. Narayana<br>Murthy
+        ]]></item>
+
+        <item>Prannoy Roy</item>
+    </string-array>
+    <string-array name="inspire_comapny">
+        <item>Amul</item>
+        <item>Flipkart</item>
+        <item>Infosys</item>
+        <item>NDTV</item>
+    </string-array>
+
+    <string-array name="inspire_image">
+        <item>@mipmap/amul</item>
+        <item>@mipmap/flipkart</item>
+        <item>@mipmap/infosys</item>
+        <item>@mipmap/ndtv</item>
+    </string-array>
+
 </resources>
