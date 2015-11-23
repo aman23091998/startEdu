@@ -4,7 +4,9 @@ package us.coreis.smartedu.startedu;
 import android.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,11 +17,13 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +43,7 @@ public class MainActivity extends AppCompatActivity
         TextView nav_header_email = (TextView) navHeader.findViewById(R.id.nav_header_email);
         if (Login.getEmail() != null) nav_header_email.setText(Login.getEmail());
         else nav_header_email.setText(RegisterHere.getEmail());
-        if (RegisterHere.getName() != null ) nav_header_name.setText(RegisterHere.getName());
+        if (RegisterHere.getName() != null) nav_header_name.setText(RegisterHere.getName());
         else nav_header_name.setText("Pankaj");
         navigationView.addHeaderView(navHeader);
         navigationView.setNavigationItemSelectedListener(this);
@@ -56,9 +60,24 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, 2000);
         }
     }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -81,7 +100,10 @@ public class MainActivity extends AppCompatActivity
 
                 break;
             case R.id.nav_about:
-
+                Fragment aboutUs = new AboutUsFragment();
+                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.containerView, aboutUs);
+                fragmentTransaction.commit();
                 break;
             case R.id.nav_contact:
 
