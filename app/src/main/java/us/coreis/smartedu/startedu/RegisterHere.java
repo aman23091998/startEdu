@@ -1,5 +1,6 @@
 package us.coreis.smartedu.startedu;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -20,12 +21,14 @@ public class RegisterHere extends AppCompatActivity {
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     public static String name = null;
     public static String email = null;
+    public static Activity registerActivity ;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_register_here);
+        registerActivity = this ;
         Typeface latoFont = Typeface.createFromAsset(getAssets(), "fonts/Lato/Lato-Regular.ttf");
         TextView registerHeading = (TextView) findViewById(R.id.register_header);
         registerHeading.setTypeface(latoFont);

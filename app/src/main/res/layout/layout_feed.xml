@@ -28,6 +28,8 @@
                     android:id="@+id/status_update"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:maxLength="400"
+                    android:maxLines="10"
                     android:hint=" Tell us about yourself " />
             </android.support.design.widget.TextInputLayout>
 

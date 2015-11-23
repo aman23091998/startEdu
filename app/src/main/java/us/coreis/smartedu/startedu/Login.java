@@ -1,5 +1,6 @@
 package us.coreis.smartedu.startedu;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -23,10 +24,11 @@ public class Login extends AppCompatActivity {
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     private Matcher matcher;
     static String email = null ;
-
+    public static Activity loginActivity;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_login);
+        loginActivity = this ;
         Typeface latoFont = Typeface.createFromAsset(getAssets(), "fonts/Lato/Lato-Regular.ttf");
         TextView loginHeading = (TextView) findViewById(R.id.login_header);
         loginHeading.setTypeface(latoFont);
@@ -87,7 +89,6 @@ public class Login extends AppCompatActivity {
     public static String getEmail(){
         return email;
     }
-
     public boolean validatePassword(String password) {
         return password.length() >= 8;
     }
