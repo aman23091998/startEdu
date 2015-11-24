@@ -55,4 +55,11 @@
         <item>@mipmap/ndtv</item>
     </string-array>
 
+    <string-array name="field_name">
+        <item>Contact Number</item>
+        <item>Age</item>
+        <item>Associated Company</item>
+        <item>Company Website</item>
+    </string-array>
+
 </resources>

@@ -4,6 +4,7 @@
     style="@android:style/Widget.Material.FastScroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/inspireSV"
     android:scrollbars="vertical">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,7 +23,7 @@
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="620dp"
+            android:layout_height="590dp"
             android:id = "@+id/inspireRV" />
     </LinearLayout>
 

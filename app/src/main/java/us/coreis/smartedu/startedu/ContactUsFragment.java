@@ -18,9 +18,6 @@ import android.widget.ScrollView;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by aman2 on 24-11-2015.
- */
 public class ContactUsFragment extends android.support.v4.app.Fragment {
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     Pattern pattern = Pattern.compile(EMAIL_PATTERN);
@@ -32,14 +29,19 @@ public class ContactUsFragment extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.layout_contact, null);
         final TextInputLayout emailWrapper = (TextInputLayout) view.findViewById(R.id.wrapper_email_contactUs);
         final TextInputLayout msgWrapper = (TextInputLayout) view.findViewById(R.id.wrapper_msg_contactUs);
-        ScrollView SV  = (ScrollView) view.findViewById(R.id.contactSV);
+        ScrollView SV = (ScrollView) view.findViewById(R.id.contactSV);
         Display display = getActivity().getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         final int width = size.x;
         int height = size.y;
-        ScrollView.LayoutParams params = new ScrollView.LayoutParams(width , height);
+        ScrollView.LayoutParams params = new ScrollView.LayoutParams(width, height);
         SV.setLayoutParams(params);
+        emailWrapper.getEditText().setText(MainActivity.email);
+        TextInputLayout nameWrapper = (TextInputLayout) view.findViewById(R.id.wrapper_name_contactUs);
+        nameWrapper.getEditText().setText(MainActivity.name);
+        TextInputLayout numberWrapper = (TextInputLayout) view.findViewById(R.id.wrapper_no_contactUs);
+        numberWrapper.getEditText().setText(MainActivity.number);
         Button submit = (Button) view.findViewById(R.id.submitButtonContactUS);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

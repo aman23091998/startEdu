@@ -24,7 +24,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".SplashActivity"
-            android:label="Splash"
+            android:label="startEdu"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

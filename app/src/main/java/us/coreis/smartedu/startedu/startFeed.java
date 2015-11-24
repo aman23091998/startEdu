@@ -1,6 +1,7 @@
 package us.coreis.smartedu.startedu;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -59,10 +61,10 @@ public class startFeed extends android.support.v4.app.Fragment {
                     aboutSelf.setError(" Must be at-least 15 characters ");
                 else {
                     WhoInvites_adapter.add(AddInfo);
-                    if (RegisterHere.getName() == null)
+                    if (MainActivity.name.length() == 0)
                         WhoInvited_adapter.add(" ");
                     else
-                        WhoInvited_adapter.add(" - " + RegisterHere.getName());
+                        WhoInvited_adapter.add(" - " + MainActivity.name);
                     dialogView = layoutInflater.inflate(R.layout.feed_dialog_loading, null);
                     dialogBuilder.setView(dialogView);
                     final ProgressBar progressBar = (ProgressBar) dialogView.findViewById(R.id.progressBar_feed);
@@ -93,6 +95,7 @@ public class startFeed extends android.support.v4.app.Fragment {
                     });
                     adapter.notifyDataSetChanged();
                     aboutSelf.getEditText().setText("");
+                    hideKeyboard();
                 }
             }
         });
@@ -121,8 +124,8 @@ public class startFeed extends android.support.v4.app.Fragment {
                         else nameWrapper.setErrorEnabled(false);
                         if (name.length() > 0 && pattern.matcher(email).matches()) {
                             invitePage.cancel();
-                            if (RegisterHere.getName() != null)
-                                WhoInvites_adapter.add(RegisterHere.getName() + " invited " + name + " to ");
+                            if (MainActivity.name.length() != 0)
+                                WhoInvites_adapter.add(MainActivity.name + " invited " + name + " to ");
                             else
                                 WhoInvites_adapter.add(name + " has been invited to  ");
                             WhoInvited_adapter.add(" - <font color=\"#02BAA7\">startEdu</font> ");
@@ -159,8 +162,18 @@ public class startFeed extends android.support.v4.app.Fragment {
                         }
                     }
                 });
+                hideKeyboard();
             }
+
         });
         return view;
+    }
+
+    private void hideKeyboard() {
+        View view = getActivity().getCurrentFocus();
+        if (view != null) {
+            ((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).
+                    hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
     }
 }

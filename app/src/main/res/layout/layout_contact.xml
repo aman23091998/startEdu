@@ -65,7 +65,7 @@
         </LinearLayout>
 
         <TextView
-            style="@android:style/TextAppearance.Material.Large"
+            style="@android:style/TextAppearance.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
