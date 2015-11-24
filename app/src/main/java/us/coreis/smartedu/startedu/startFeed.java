@@ -61,7 +61,7 @@ public class startFeed extends android.support.v4.app.Fragment {
                     aboutSelf.setError(" Must be at-least 15 characters ");
                 else {
                     WhoInvites_adapter.add(AddInfo);
-                    if (MainActivity.name.length() == 0)
+                    if (MainActivity.name ==null || MainActivity.name.length() == 0)
                         WhoInvited_adapter.add(" ");
                     else
                         WhoInvited_adapter.add(" - " + MainActivity.name);
@@ -124,13 +124,14 @@ public class startFeed extends android.support.v4.app.Fragment {
                         else nameWrapper.setErrorEnabled(false);
                         if (name.length() > 0 && pattern.matcher(email).matches()) {
                             invitePage.cancel();
-                            if (MainActivity.name.length() != 0)
+                            if (MainActivity.name !=null && MainActivity.name.length() > 0)
                                 WhoInvites_adapter.add(MainActivity.name + " invited " + name + " to ");
                             else
                                 WhoInvites_adapter.add(name + " has been invited to  ");
                             WhoInvited_adapter.add(" - <font color=\"#02BAA7\">startEdu</font> ");
                             dialogView = layoutInflater.inflate(R.layout.feed_dialog_loading, null);
                             dialogBuilder.setView(dialogView);
+                            hideKeyboard();
                             final ProgressBar progressBar = (ProgressBar) dialogView.findViewById(R.id.progressBar_feed);
                             final TextView information = (TextView) dialogView.findViewById(R.id.feed_dialog_text);
                             progressBar.getIndeterminateDrawable().setColorFilter(0xFF02BAA7, PorterDuff.Mode.MULTIPLY);
@@ -162,7 +163,6 @@ public class startFeed extends android.support.v4.app.Fragment {
                         }
                     }
                 });
-                hideKeyboard();
             }
 
         });

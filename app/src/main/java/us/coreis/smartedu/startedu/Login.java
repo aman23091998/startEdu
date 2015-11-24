@@ -82,6 +82,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void gotoMain() {
+        hideKeyboard();
         Toast.makeText(getApplicationContext(), "Logging In . ", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, MainActivity.class));
     }
