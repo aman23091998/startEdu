@@ -35,7 +35,7 @@ public class ContactUsFragment extends android.support.v4.app.Fragment {
         display.getSize(size);
         final int width = size.x;
         int height = size.y;
-        ScrollView.LayoutParams params = new ScrollView.LayoutParams(width, height);
+        ScrollView.LayoutParams params = new ScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height);
         SV.setLayoutParams(params);
         emailWrapper.getEditText().setText(MainActivity.email);
         TextInputLayout nameWrapper = (TextInputLayout) view.findViewById(R.id.wrapper_name_contactUs);
